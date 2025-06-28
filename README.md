@@ -31,7 +31,30 @@
 
 ---
 
-## 🗂️ Folder Structure
+## Input/Output
 
+Input: "Congratulations! You've won a free ticket."
+Prediction: 🚫 Spam
+
+## graph LR
+A[Input Text Message] --> B[Preprocessing]
+B --> C[Vectorizer (TF-IDF)]
+C --> D[Trained Classifier Model]
+D --> E{Prediction: Ham or Spam}
+
+##💡 Real-World Use Cases
+📱 SMS spam blocking
+
+📨 Email inbox filtering
+
+💬 Chat moderation bots
+
+🛑 Form spam prevention
+
+## ✍️ Author
+| [![Anu's GitHub](https://avatars.githubusercontent.com/anu4552?s=80)](https://github.com/anu4552) |
+| :-----------------------------------------------------------------------------------------------: |
+|                                           **Anu Kumari**                                          |
+|                            [GitHub Profile](https://github.com/anu4552)                           |
 
 
