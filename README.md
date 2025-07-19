@@ -1,60 +1,58 @@
-# ✨ Spam vs Ham Classifier using Machine Learning
+# 📩 Spam Detection using BERT (HuggingFace Transformers)
 
-> 📬 A smart spam detection system that classifies messages as **Ham (Safe)** or **Spam (Unwanted)** using NLP and supervised ML algorithms.
-
----
-
-![Spam Detection Demo](https://media.giphy.com/media/QBd2kLB5qDmysEXre9/giphy.gif)  
-<sub>📽️ *Demo: Message being classified in action (replace with your own if needed)*</sub>
+This project fine-tunes a BERT-based model (`bert-base-uncased`) on the **SMS Spam Collection Dataset** to classify text messages as **ham (legit)** or **spam**. It achieves **~92% validation accuracy**.
 
 ---
 
-## 📦 Project Summary
+## 🚀 Features
 
-| Key Aspect        | Details                                                      |
-|------------------|--------------------------------------------------------------|
-| 🧠 Algorithm      | Multinomial Naive Bayes / Logistic Regression                |
-| 📚 Dataset        | [SMS Spam Collection](https://www.kaggle.com/datasets/uciml/sms-spam-collection-dataset) |
-| 🧼 Preprocessing   | Lowercasing, stopword removal, tokenization                 |
-| 🔤 Vectorization   | TF-IDF / CountVectorizer                                    |
-| 💾 Model Files     | `model.pkl`, `vectorizer.pkl`                               |
-| 🎯 Accuracy        | ~95% on test data                                           |
+- ✅ Fine-tuned `bert-base-uncased` model on real SMS spam data
+- ✅ Achieves 92%+ accuracy in spam classification
+- ✅ Visualizes dataset distribution and word clouds
+- ✅ Predicts new examples using saved model
+- ✅ Modular scripts for training, prediction, and visualization
 
 ---
 
-## ⚙️ Features
+## 🧠 Model
 
-- ✅ Detects spam messages in real-time
-- 🧠 Pre-trained ML model using clean NLP pipeline
-- 💬 Input a custom message and get instant classification
-- 🔐 Prevents spam in chat, SMS, or form submissions
+- **Model**: `bert-base-uncased` from Hugging Face
+- **Framework**: PyTorch + HuggingFace Transformers
+- **Tokenizer**: `BertTokenizer`
+- **Optimizer**: AdamW
+- **Epochs**: 3
+- **Batch size**: 8
+- **Max length**: 128 tokens
 
 ---
 
-## Input/Output
+## 📈 Training Results
 
-Input: "Congratulations! You've won a free ticket."
-Prediction: 🚫 Spam
+| Metric      | Value   |
+|-------------|---------|
+| Accuracy    | 92.3%   |
+| Eval Acc    | 91.9%   |
+| Eval Loss   | 0.32    |
 
-## graph LR
-A[Input Text Message] --> B[Preprocessing]
-B --> C[Vectorizer (TF-IDF)]
-C --> D[Trained Classifier Model]
-D --> E{Prediction: Ham or Spam}
+-------
+Install dependencies
 
-##💡 Real-World Use Cases
-📱 SMS spam blocking
+pip install torch transformers scikit-learn matplotlib wordcloud pandas
 
-📨 Email inbox filtering
+Train the model
 
-💬 Chat moderation bots
+python spam_detection_training.py
 
-🛑 Form spam prevention
+------
+You’ll see:
 
-## ✍️ Author
-| [![Anu's GitHub](https://avatars.githubusercontent.com/anu4552?s=80)](https://github.com/anu4552) |
-| :-----------------------------------------------------------------------------------------------: |
-|                                           **Anu Kumari**                                          |
-|                            [GitHub Profile](https://github.com/anu4552)                           |
+📊 Bar plot of spam vs ham distribution
 
+☁️ Word cloud of spam messages
+
+📦 Example Predictions
+Message	Predicted Label
+"Hey, are you coming to the meeting?"	ham
+"Congratulations! You've won a free iPhone. Click now!"	spam
+"URGENT! Your account is blocked. Click the link ASAP."	spam
 
