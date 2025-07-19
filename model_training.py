@@ -67,21 +67,8 @@ trainer = Trainer(
 
 train_result = trainer.train()
 
-# 7. Save Model
-trainer.save_model("bert-mini-spam-model")
 
-# 8. Plot Training Loss
-logs = pd.DataFrame(trainer.state.log_history)
-logs.dropna(subset=["loss"], inplace=True)
-
-plt.plot(logs["step"], logs["loss"], label="Training Loss")
-plt.xlabel("Steps")
-plt.ylabel("Loss")
-plt.title("Training Loss over Time")
-plt.legend()
-plt.show()
-
-# 9. Prediction on Custom Text
+# 7. Prediction on Custom Text
 def predict(texts):
     inputs = tokenizer(texts, return_tensors="pt", padding=True, truncation=True, max_length=128)
     outputs = model(**inputs)
@@ -91,7 +78,7 @@ def predict(texts):
         label = le.inverse_transform([p.item()])[0]
         print(f"Message: \"{t}\" --> Prediction: {label}")
 
-# 10. Test Prediction
+# 8. Test Prediction
 sample_texts = [
     "Congratulations! You've won a free iPhone. Click here to claim.",
     "Hey, are we still meeting for lunch tomorrow?",
